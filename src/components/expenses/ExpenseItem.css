@@ -2,10 +2,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+  /* box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25); */
   padding: 0.5rem;
   margin: 1rem 0;
-  border-radius: 12px;
+  /* border-radius: 12px; */
   background-color: #4b4b4b;
 }
 
@@ -35,6 +35,13 @@
   border: 1px solid white;
   padding: 0.5rem;
   border-radius: 12px;
+}
+
+.expense-item__click {
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  border: none;
+  font-weight: bold;
 }
 
 @media (min-width: 580px) {
