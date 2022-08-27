@@ -3,43 +3,46 @@
 import "./App.css";
 import Expenses from "./components/expenses/Expenses";
 import NewExpense from "./components/newexpense/NewExpense";
+
+const SUP_EXPENSE = [
+  {
+    id: "e1",
+    title: "Toilet Paper",
+    amount: 94.12,
+    date: new Date(2020, 7, 14),
+  },
+  {
+    id: "e2",
+    title: "New TV",
+    amount: 799.49,
+    date: new Date(2021, 2, 12),
+  },
+  {
+    id: "e3",
+    title: "Car Insurance",
+    amount: 294.67,
+    date: new Date(2021, 2, 28),
+  },
+  {
+    id: "e4",
+    title: "New Desk (Wooden)",
+    amount: 450,
+    date: new Date(2021, 5, 12),
+  },
+];
+
 function App() {
   // Dữ liệu hiển thị trên giao diện là 1 JS Array.
-  const expenses = [
-    {
-      id: "e1",
-      title: "Toilet Paper",
-      amount: 94.12,
-      date: new Date(2020, 7, 14),
-    },
-    {
-      id: "e2",
-      title: "New TV",
-      amount: 799.49,
-      date: new Date(2021, 2, 12),
-    },
-    {
-      id: "e3",
-      title: "Car Insurance",
-      amount: 294.67,
-      date: new Date(2021, 2, 28),
-    },
-    {
-      id: "e4",
-      title: "New Desk (Wooden)",
-      amount: 450,
-      date: new Date(2021, 5, 12),
-    },
-  ];
-  // Thêm trình xử lý addExpenseHandler();
+
+  // Hàm addExpenseHandler() đc kích hoạt any khi nào 1 khoản chi mới dc thêm vào. Nhận expense làm tham số trong hàm.
   const addExpenseHandler = (expense) => {
-    console.log("In App.js");
+    // console.log("In App.js");
     console.log(expense);
   };
   return (
     <div>
       <NewExpense onAddExpense={addExpenseHandler} />
-      <Expenses items={expenses} />
+      <Expenses items={SUP_EXPENSE} />
     </div>
   );
 }

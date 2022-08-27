@@ -37,12 +37,12 @@
   border-radius: 12px;
 }
 
-.expense-item__click {
+/* .expense-item__click {
   border-radius: 4px;
   padding: 0.25rem 0.5rem;
   border: none;
   font-weight: bold;
-}
+} */
 
 @media (min-width: 580px) {
   .expense-item__description {

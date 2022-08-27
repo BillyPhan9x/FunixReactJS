@@ -39,7 +39,7 @@ function ExpenseForm(props) {
       amount: enteredAmount,
       date: new Date(enteredDate),
     };
-    console.log(expenseData);
+    // console.log(expenseData);
 
     // Chạy hàm thông qua props (giao tiếp giữa 2 thành phần)
     props.onSaveExpenseData(expenseData);

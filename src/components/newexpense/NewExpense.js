@@ -11,7 +11,7 @@ function NewExpense(props) {
       ...enteredExpenseData,
       id: "e" + i++,
     };
-    console.log(expenseData);
+    // console.log(expenseData);
     // Chuyển dữ liệu từ NewExpense sang thành phần cha App
     props.onAddExpense(expenseData);
   };

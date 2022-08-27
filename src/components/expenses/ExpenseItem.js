@@ -1,5 +1,5 @@
 // Cần nhập useState. Hàm dc cấp bởi thư viện React, hàm cho phép xác định các value is state vs những thay đổi các giá trị này sẽ phản ánh trong hàm thành phần đang dc gọi lại.
-import React, { useState } from "react";
+import React from "react";
 
 import Card from "../UI/Card";
 // Use component ExpenseDate trong copmponent ExpenseItem (file ExpenseItem)
@@ -9,27 +9,14 @@ import "./ExpenseItem.css";
 
 // 👉 Nhận props là tham số, truyền props để định dạng và trích xuất
 function ExpenseItem(props) {
-  // useState() trả về một mảng gồm hai thành phần (giá trị hiện tại, hàm cập nhật)
-  const [title, setTitle] = useState(props.title);
-
-  // clickHander đang đc phân tích cú pháp khi trả về code JSX. ( Truyền 1 con trỏ vào hàm làm giá trị cho sự kiện đó, sau đó React sẽ ghi nhớ và thực thi hàm any khi nào xảy ra những sự kiện đó)
-  const clickHandler = () => {
-    // Sử dụng useState() thay đổi trạng thái hiển thị khi click vào button
-    setTitle("Updated!");
-    // console.log("Updated!");
-  };
-
   // syntax use dữ liệu động trong JSX // trong ExpensexItem, khi use ExpenseDate, nên thiết lập prop date và giá trị truyền vào sẽ chỉ {props.date}
   return (
     <Card className="expense-item">
       <ExpenseDate date={props.date} />
       <div className="expense-item__description">
-        <h2>{title}</h2>
+        <h2>{props.title}</h2>
         <div className="expense-item__price">${props.amount}</div>
       </div>
-      <button className="expense-item__click" onClick={clickHandler}>
-        Change Title
-      </button>
     </Card>
   );
 }
