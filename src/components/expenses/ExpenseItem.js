@@ -2,6 +2,7 @@
 import React from "react";
 
 import Card from "../UI/Card";
+
 // Use component ExpenseDate trong copmponent ExpenseItem (file ExpenseItem)
 import ExpenseDate from "./ExpenseDate";
 // Use CSS cho component bằng cú pháp import cho React biết nó cần xem xét file ExpenseItem.css.
@@ -11,17 +12,22 @@ import "./ExpenseItem.css";
 function ExpenseItem(props) {
   // syntax use dữ liệu động trong JSX // trong ExpensexItem, khi use ExpenseDate, nên thiết lập prop date và giá trị truyền vào sẽ chỉ {props.date}
   return (
-    <Card className="expense-item">
-      <ExpenseDate date={props.date} />
-      <div className="expense-item__description">
-        <h2>{props.title}</h2>
-        <div className="expense-item__price">${props.amount}</div>
-      </div>
-    </Card>
+    <li>
+      <Card className="expense-item">
+        <ExpenseDate date={props.date} />
+        <div className="expense-item__description">
+          <h2>{props.title}</h2>
+          <div className="expense-item__price">${props.amount}</div>
+        </div>
+      </Card>
+    </li>
   );
 }
 
 export default ExpenseItem;
+
+// Bọc ExpensesItem bằng thẻ li cho đúng với ngữ nghĩa  trong file ExpenseItem
+// - Do đang use thẻ <ul> nên để phần code JSX trả về trông hợp lý hơn, đổi thẻ <div> thành thẻ <li> bào quanh component <Card>
 
 // Để use Component ExpenseItem, cần export(xuất) nó, nếu 0 nó chỉ có thể use đc bên trong file
 // Xuất hàm là mặc định cho file này.

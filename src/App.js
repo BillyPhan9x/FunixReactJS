@@ -1,8 +1,10 @@
 //  Đường dẫn này cho JS biết ta cần tìm kiếm file ExpenseItem.js trong folder components nằm bên cạnh file App.js đã có câu lệnh import. Sau đó có thể use hàm như 1 element HTML.
 
-import "./App.css";
+import React, { useState } from "react";
+
 import Expenses from "./components/expenses/Expenses";
 import NewExpense from "./components/newexpense/NewExpense";
+import "./App.css";
 
 const SUP_EXPENSE = [
   {
@@ -32,17 +34,21 @@ const SUP_EXPENSE = [
 ];
 
 function App() {
+  const [expenses, setExpenses] = useState(SUP_EXPENSE);
   // Dữ liệu hiển thị trên giao diện là 1 JS Array.
 
   // Hàm addExpenseHandler() đc kích hoạt any khi nào 1 khoản chi mới dc thêm vào. Nhận expense làm tham số trong hàm.
   const addExpenseHandler = (expense) => {
-    // console.log("In App.js");
-    console.log(expense);
+    // Quản lý State bằng trạng thái trước đó, cập nhật state khi state new dựa trên snapshot cũ of chính state đó.
+    setExpenses((prevExpenses) => {
+      return [expense, ...prevExpenses];
+    });
   };
+
   return (
     <div>
       <NewExpense onAddExpense={addExpenseHandler} />
-      <Expenses items={SUP_EXPENSE} />
+      <Expenses items={expenses} />
     </div>
   );
 }

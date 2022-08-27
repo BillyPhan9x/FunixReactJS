@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import Card from "../UI/Card";
 
 // Use component ExpenseItem trong copmponent Expenses (file ExpenseItem) thành phần được kiểm soát
-import ExpenseItem from "./ExpenseItem";
+import ExpensesList from "./ExpensesList";
 
-import "./Expenses.css";
 import ExpensesFilter from "./ExpensesFilter";
+import "./Expenses.css";
 
 function Expenses(props) {
   // Controlled Component ExpensesFilter
@@ -29,15 +29,7 @@ function Expenses(props) {
           selected={filteredYear}
           onChangeFilter={filterChangeHandler}
         />
-
-        {filteredExpenses.map((expense) => (
-          <ExpenseItem
-            key={expense.id}
-            title={expense.title}
-            amount={expense.amount}
-            date={expense.date}
-          />
-        ))}
+        <ExpensesList items={filteredExpenses} />
       </Card>
     </div>
   );
