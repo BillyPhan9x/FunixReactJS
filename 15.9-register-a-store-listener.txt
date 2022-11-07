@@ -1,0 +1,30 @@
+const ADD = 'ADD';
+
+const reducer = (state = 0, action) => {
+  switch(action.type) {
+    case ADD:
+      return state + 1;
+    default:
+      return state;
+  }
+};
+
+const store = Redux.createStore(reducer);
+
+// Global count variable:
+let count = 0;
+
+// Change code below this line
+// The store.subscribe should receive a function.
+const countSubscriber = () => (count += 1)     //count = ++count  // count = count + 1
+
+// The callback to store.subscribe should also increment the global count variable as the store is updated.
+store.subscribe(countSubscriber)
+// Change code above this line
+
+store.dispatch({type: ADD});
+console.log(count);
+store.dispatch({type: ADD});
+console.log(count);
+store.dispatch({type: ADD});
+console.log(count);
