@@ -60,7 +60,7 @@ const cartReducer = (state, action) => {
 
     return {
       items: updatedItems,
-      totalAmount: updatedTotalAmount,
+      totalAmount: +updatedTotalAmount,
     };
   }
 
@@ -95,6 +95,10 @@ const cartReducer = (state, action) => {
     };
   }
 
+  if (action.type === "CLEAR") {
+    return defaultCartState;
+  }
+
   return defaultCartState;
 };
 //  tạo một  CartProvider để quản lý CartContext
@@ -116,6 +120,10 @@ const CartProvider = (props) => {
     dispatchCartAction({ type: "DELETE", id: id });
   };
 
+  const clearCartHandler = () => {
+    dispatchCartAction({ type: "CLEAR" });
+  };
+
   //Action ADD  món ăn vào trong State items của CartContext, sau đó tính lại totalAmount của tất cả đồ ăn và cập nhật các State tương ứng vào CartContext. Thông tin của món ăn sẽ nằm ở trường action.item truyền vào.
 
   const cartContext = {
@@ -124,6 +132,7 @@ const CartProvider = (props) => {
     addItem: addItemToCartHandler,
     removeItem: removeItemFromCartHandler,
     deleteItem: deleteItemFromCartHandler,
+    clearCart: clearCartHandler,
   };
   // trả về mã JSX ngữ cảnh giỏ hàng truy cập được cung cấp với thuộc tính: trỏ đến giá trị được lưu ở cartContext
   return (

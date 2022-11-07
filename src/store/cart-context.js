@@ -7,6 +7,7 @@ const CartContext = React.createContext({
   addItem: (item) => {}, // chức năng addItem cho phép cập nhật ngữ cảnh , giả sử nhận dc mục cần thêm vào
   removeItem: (id) => {}, // chức năng removeItem cho phép cập nhật ngữ cảnh, giả sử 1 id để xđ mặt hàng cần loại bỏ khỏi giỏ hàng.
   deleteItem: (id) => {},
+  clearCart: () => {},
 });
 
 export default CartContext;
