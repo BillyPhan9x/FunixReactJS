@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none; /* chỉ định kiểu mặt chữ (typeface)  */
+  text-rendering: optimizeLegibility; /* browse hiển thị văn bản: tối ưu hoá */
+  -webkit-font-smoothing: antialiased;
+  /* -webkit là của Chrome và Safari
+  -moz là của Firefox
+  -o là của Opera
+  -ms là của Internet Explorer
+  làm mịn phông chữ: chống răng cưa
+  */
+  -moz-osx-font-smoothing: grayscale; /* làm mịn phông chữ: thang độ xám */
+  -webkit-text-size-adjust: 100%; /* văn bản-kích thước-điều chỉnh */
+}
+
+body {
+  margin: 0;
+  text-align: center;
+}
+
+ul {
+  list-style: none; /* kiểu danh sách */
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+}
+
+#error-content {
+  text-align: center;
+}
